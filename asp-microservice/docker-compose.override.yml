@@ -14,9 +14,11 @@ services:
         environment:
           - ASPNETCORE_ENVIRONMENT=Development
           - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
-          - ASPNETCORE_URLS=https://+:443;http://+:80
+          #- ASPNETCORE_URLS=https://+:443;http://+:80
+        depends_on:
+          - catalogdb
         ports:
-          - "80:8000"
+          - "8000:80"
           - "443"
-        volumes:
-          - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+        #volumes:
+          #- ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
